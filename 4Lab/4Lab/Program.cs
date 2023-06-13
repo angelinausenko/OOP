@@ -6,120 +6,151 @@ namespace EducationlSystem
     {
         static void Main(string[] args)
         {
-            StudentInformation(); //Виклик методу для збору інформації про студента;
-            TeacherInformation(); //Виклик методу для збору інформації про педагога
-            UniversityInformation(); //Виклик методу для збору інформації про університет;
 
-            //Закінчити програму
-            Console.WriteLine("Натисніть будь-яку клавішу для завершення роботи.");
-            Console.ReadKey();
-        }
-
-        static void StudentInformation()
-        {
-            // Дані студента
-
-            // Заголовок
-            Console.WriteLine("Інформація про студента:");
-
-            // Дії
-            Console.WriteLine("");
-            Console.WriteLine("Введіть своє прізвище та ім'я:");
+            Console.WriteLine("Введіть своє ім'я:");
             string studentName = Console.ReadLine();
 
             Console.WriteLine("Введіть свій вік:");
             int studentAge = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Напишіть назву навчального закладу:");
-            string universityName = Console.ReadLine();
-
-            Console.WriteLine("Введіть назву вашого факультету: ");
-            string facultyName = Console.ReadLine();
-
             Console.WriteLine("Введіть свій середній бал:");
             double averageGrade = Convert.ToDouble(Console.ReadLine());
 
-            //Заповнена анкета
-            Console.WriteLine("");
-            Console.WriteLine("Дані студента:");
+            Console.WriteLine("Введіть статус зарахування (True або False):");
+            bool isEnrolled = Convert.ToBoolean(Console.ReadLine());
+
+            Console.WriteLine("Інформація про студента:");
             Console.WriteLine("Ім'я: " + studentName);
             Console.WriteLine("Вік: " + studentAge);
-            Console.WriteLine("Навчальний заклад: " + universityName);
-            Console.WriteLine("Факультет:" + facultyName);
             Console.WriteLine("Середній бал: " + averageGrade);
-        }
+            Console.WriteLine("Статус зарахування: " + isEnrolled);
 
-        static void TeacherInformation()
-        {
-            // Дані педагога
+            Console.WriteLine("Статичні дані:");
+            Console.WriteLine("Кількість студентів: " + Student.Count);
+            Console.WriteLine("Максимальний бал: " + Student.MaxGrade);
 
-            // Заголовок
-            Console.WriteLine("");
-            Console.WriteLine("Інформація про педагога:");
-            Console.WriteLine("");
+            Console.WriteLine();
 
-            // Дії
-            Console.WriteLine("Введіть своє прізвище та ім'я:");
+            Console.WriteLine("Введіть ім'я педагога: ");
             string teacherName = Console.ReadLine();
 
-            Console.WriteLine("Введіть свій вік:");
-            int teacherAge = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Напишіть назву навчального закладу, де працюєте:");
-            string schoolName = Console.ReadLine();
-
-            Console.WriteLine("Введіть предмет, який викладаєте (можна декілька):");
+            Console.WriteLine("Введіть предмет, який викладає педагог: ");
             string subject = Console.ReadLine();
 
-            //Заповнена анкета
-            Console.WriteLine("");
-            Console.WriteLine("Дані педагога:");
-            Console.WriteLine("Ім'я: " + teacherName);
-            Console.WriteLine("Вік: " + teacherAge);
-            Console.WriteLine("Навчальний заклад: " + schoolName);
-            Console.WriteLine("Предмет:" + subject);
+            Console.WriteLine("Введіть рік початку роботи педагога: ");
+            int startYear = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Інформація про педагога: ");
+            Console.WriteLine("ім'я: " + teacherName);
+            Console.WriteLine("Предмет: " + subject);
+            Console.WriteLine("Рік початку роботи: " + startYear);
+
+            Console.WriteLine("Статичні дані: ");
+            Console.WriteLine("кількість вчителів: " + Teacher.Count);
+
+            Console.WriteLine("Натисніть будь-яку клавішу для завершення...");
+            Console.ReadKey();
 
 
         }
 
-        static void UniversityInformation()
+        class Student
         {
-            //Дані про університет
+            private string name;
+            private int age;
+            private double averageGrade;
+            private bool isEnrolled;
 
-            // Заголовок
-            Console.WriteLine("");
-            Console.WriteLine("Інформація про університет:");
-            Console.WriteLine("");
+            public static int Count { get; private set; }
+            public static double MaxGrade { get; set; }
 
-            //Дії
-            Console.WriteLine("Введіть назву університету:");
-            string universityName = Console.ReadLine();
+            public string GetName()
+            {
+                return name;
+            }
 
-            Console.WriteLine("Введіть рік заснування університету:");
-            int yearFounded = Convert.ToInt32(Console.ReadLine());
+            public void SetName(string value)
+            {
+                name = value;
+            }
 
-            Console.WriteLine("Чи працює університет? (введіть true або false):");
-            bool isWorking = Convert.ToBoolean(Console.ReadLine());
+            public int GetAge()
+            {
+                return age;
+            }
 
-            Console.WriteLine("Скільки студентів навчається в університеті:");
-            int numberOfStudents = Convert.ToInt32(Console.ReadLine());
+            public void SetAge(int value)
+            {
+                age = value;
+            }
 
-            Console.WriteLine("Скільки вчителів працює в університеті:");
-            int numberOfTeachers = Convert.ToInt32(Console.ReadLine());
+            public double GetAverageGrade()
+            {
+                return averageGrade;
+            }
 
-            Console.WriteLine("Чи є університет державним? (введіть true або false):");
-            bool isPublic = Convert.ToBoolean(Console.ReadLine());
+            public void SetAverageGrade(double value)
+            {
+                averageGrade = value;
+            }
 
-            //Заповнена анкета
-            Console.WriteLine("");
-            Console.WriteLine("Дані про університет:");
-            Console.WriteLine("Назва: " + universityName);
-            Console.WriteLine("Рік заснування: " + yearFounded);
-            Console.WriteLine("Чи працює: " + isWorking);
-            Console.WriteLine("Кількість студентів: " + numberOfStudents);
-            Console.WriteLine("Кількість вчителів: " + numberOfTeachers);
-            Console.WriteLine("Державний: " + isPublic);
+            public bool GetIsEnrolled()
+            {
+                return isEnrolled;
+            }
+
+            public void SetIsEnrolled(bool value)
+            {
+                isEnrolled = value;
+            }
+
+
+
         }
+
+        class Teacher
+        {
+            private string name;
+            private string subject;
+            private int startYear;
+
+            public static int Count { get; private set; }
+
+            public string GetName()
+            {
+                return name;
+            }
+
+            public void SetName(string value)
+            {
+                name = value;
+            }
+
+            public string GetSubject()
+            {
+                return subject;
+            }
+
+            public void SetSubject(string value)
+            {
+                subject = value;
+            }
+
+            public int GetStartYear()
+            {
+                return startYear;
+            }
+
+            public void SetStartYear(int value)
+            {
+                startYear = value;
+            }
+
+
+        }
+          
+
+        
     }
 
 
