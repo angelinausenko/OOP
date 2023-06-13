@@ -28,6 +28,25 @@ namespace EducationalSystem
             Console.WriteLine("Кількість студентів: " + Student.Count);
             Console.WriteLine("Максимальний бал: " + Student.MaxGrade);
 
+            Console.WriteLine();
+
+            Console.WriteLine("Введіть ім'я педагога: ");
+            string teacherName = Console.ReadLine();
+
+            Console.WriteLine("Введіть предмет, який викладає педагог: ");
+            string subject = Console.ReadLine();
+
+            Console.WriteLine("Введіть рік початку роботи педагога: ");
+            int startYear = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Інформація про педагога: ");
+            Console.WriteLine("ім'я: " + teacherName);
+            Console.WriteLine("Предмет: " + subject);
+            Console.WriteLine("Рік початку роботи: " + startYear);
+
+            Console.WriteLine("Статичні дані: ");
+            Console.WriteLine("кількість вчителів: " + Teacher.Count);
+
             Console.WriteLine("Натисніть будь-яку клавішу для завершення...");
             Console.ReadKey();
         }
@@ -83,4 +102,44 @@ namespace EducationalSystem
             isEnrolled = value;
         }
     }
+
+    class Teacher
+    {
+        private string name;
+        private string subject;
+        private int startYear;
+
+        public static int Count { get; private set; }
+
+        public string GetName()
+        {
+            return name;
+        }
+
+        public void SetName(string value)
+        {
+            name = value;
+        }
+
+        public string GetSubject()
+        {
+            return subject;
+        }
+
+        public void SetSubject(string value)
+        {
+            subject = value;
+        }
+
+        public int GetStartYear()
+        {
+            return startYear;
+        }
+
+        public void SetStartYear(int value)
+        {
+           startYear = value;
+        }
+    }
 }
+
